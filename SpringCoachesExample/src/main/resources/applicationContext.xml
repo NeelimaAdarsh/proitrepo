@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	<context:property-placeholder location="classpath:sport.properties" />
+	<bean id="fortuneimpl" class="com.neelima.model.Fortuneimpl">
+	</bean>
+
+	<bean id="baseBallCoach" class="com.neelima.model.BaseBallCoachModel">
+		<constructor-arg ref="fortuneimpl" />
+	</bean>
+
+	<bean id="trackCoach" class="com.neelima.model.TrackCoachModel">
+		<constructor-arg ref="fortuneimpl" />
+	</bean>
+	<!-- property name will call setFortune in CircketCoach -->
+	<bean id="circketCoach" class="com.neelima.model.CircketCoach">
+		<property name="fortune" ref="fortuneimpl" />
+		<property name="emailAddress" value="nomailid@gmail.com" />
+
+		<property name="team" value="SunRisers Hyderabad" />
+
+	</bean>
+	<bean id="hockeyCoach" class="com.neelima.model.HockeyCoach">
+		<property name="fortune" ref="fortuneimpl" />
+		<property name="hockeyType" value="${foo.hockeyType}" />
+
+		<property name="teamLength" value="${foo.teamLength}" />
+
+	</bean>
+
+</beans>
