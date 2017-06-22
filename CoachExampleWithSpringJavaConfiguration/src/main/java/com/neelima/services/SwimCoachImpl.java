@@ -8,7 +8,7 @@ import com.neelima.interfaces.ICoach;
 import com.neelima.interfaces.IFortuneService;
 
 @Component
-@Scope("prototype")
+
 public class SwimCoachImpl implements ICoach {
 	@Autowired
 	@Qualifier("randomFortuneService")
