@@ -1,0 +1,159 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html ng-app="partyinvite">
+<style>
+form {
+     
+    text-align: center;
+	border: 3px solid #f1f1f1;
+	background-color: BlanchedAlmond ;
+}
+
+input[type=text], input[type=email] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid# ccc;
+	box-sizing: border-box;
+}
+
+button {
+	background-color: brown;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Party Invite Form</title>
+</head>
+<body>
+	<form name="partyInvitation">
+
+		<div class="container">
+			<font face="broadway" color="CadetBlue " size="6"> <label>
+					Name :</label> <input type="text" class="form-control" name="name"
+				data-ng-model="name" required="required" />
+			</font>
+			<div role="alert">
+				<span
+					data-ng-show="partyInvitation.name.$touched && partyInvitation.name.$invalid">The
+					Name is required.</span>
+			</div>
+
+
+			<div class="container">
+				<font face="broadway" color="CadetBlue " size="6"> <label>
+						E-mail :</label> <input type="email" class="form-control" name="email"
+					data-ng-model="emailAddress" required="required" />
+				</font>
+				<div role="alert">
+					<span class="error" data-ng-show="myForm.input.$error.required">
+						Required!> <!-- 					data-ng-show="partyInvitation.email.$touched && partyInvitation.email.$invalid"> -->
+
+
+						Email is required.
+					</span> <span class="error"
+						data-ng-show="partyInvitation.email.$error.email"> Not
+						valid email!</span>
+				</div>
+
+			</div>
+
+		</div>
+
+		<font face="broadway" color="CadetBlue " size="6"> Can you
+			attend the party? </font>
+		<div class="radio">
+			<label> <input type="radio" name="radioVal"
+				data-ng-model="yesRadioVal" value="Yes, I'll be there">Yes,
+				I'll be there
+			</label>
+		</div>
+		<div class="radio">
+			<label> <input type="radio" name="radioVal"
+				data-ng-model="sorryRadioVal" value="Sorry,can't make it">Sorry,
+				can't make it
+			</label>
+		</div>
+		<div class="radio">
+			<label> <input type="radio" name="radioVal"
+				data-ng-model="maybeRadioVal" value="May be">May be
+			</label>
+		</div>
+
+
+		<div class="row">
+			<label> How many adults are attending? :</label> <input type="text"
+				class="form-control" name="email" data-ng-model="emailAddress"
+				required="required" />
+
+		</div>
+
+		<font face="broadway" color="CadetBlue " size="6">How many kids
+			are attending?</font> <select aria-label="kidSelection" required="required">
+
+			<option id="zero">0</option>
+			<option id="one">1</option>
+			<option id="two">2</option>
+			<option id="three">3</option>
+			<option id="four">4</option>
+			<option id="five">5</option>
+			<option id="six">6</option>
+			<option id="seven">7</option>
+
+		</select>
+
+		<div class="container">
+			<font face="broadway" color="CadetBlue " size="6">Do you have
+				any allergies or dietary restrictions?</font>
+
+
+
+			<div class="checkbox">
+				<label> <input type="checkbox" name="allergyCheckBox"
+					value="yes" data-ng-model="yescheckbox">Yes
+				</label> <label> <input type="checkbox" name="allergyCheckBox"
+					value="no" data-ng-model="nocheckbox">No
+				</label> <label> <input type="checkbox" name="allergyCheckBox"
+					value="peanutAllergy" data-ng-model="peanutCheckbox">PeanutAllergy
+				</label> <label> <input type="checkbox" name="allergyCheckBox"
+					value="allNutsAllergy" data-ng-model="peanutCheckbox">AllNutsAllergy
+				</label> <label> <input type="checkbox" name="allergyCheckBox"
+					value="gluten" data-ng-model="gluten">Gluten
+				</label>
+
+
+
+			</div>
+
+		</div>
+
+
+		<p>
+			<input type="submit"
+				style="font-face: 'Comic Sans MS'; font-size: larger; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey"
+				name="submit" value=" Submit "> <input type="reset"
+				style="font-face: 'Comic Sans MS'; font-size: larger; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey"
+				name="reset" value=" Reset ">
+		</p>
+		
+	</form>
+</body>
+</html>
